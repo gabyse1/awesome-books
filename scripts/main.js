@@ -27,7 +27,6 @@ const renderBooks = (books) => {
 }
 
 
-const bookForm = document.querySelector('#books-form');
 const bookTitle = document.querySelector('#book-title');
 const bookAuthor = document.querySelector('#book-author');
 
