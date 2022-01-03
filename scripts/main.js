@@ -12,6 +12,7 @@ const renderBook = (book) => {
   const button = document.createElement('button');
   button.classList.add('remove-button');
   button.innerText = 'Remove';
+  button.addEventListener('click', () => removeBook(book));
   article.appendChild(h2);
   article.appendChild(h3);
   article.appendChild(button);
@@ -26,28 +27,44 @@ const renderBooks = (books) => {
   });
 }
 
-
-const bookTitle = document.querySelector('#book-title');
-const bookAuthor = document.querySelector('#book-author');
-
-const addBook = () => {
+const addBook = (bookTitle, bookAuthor) => {
   let id;
   if (books.length === 0)
-    id = 1;
+  id = 1;
   else
-    id = books[books.length - 1].id + 1;
-
-  books.push({ id: id, title: bookTitle.value, author: bookAuthor.value });
+  id = books[books.length - 1].id + 1;
+  books.push({ id: id, title: bookTitle, author: bookAuthor });
   renderBooks(books);
   bookTitle.value = '';
   bookAuthor.value = '';
+  saveLocalStorage();
+}
+
+const removeBook = (book) => {
+  books = books.filter(b => b.id !== book.id);
+  renderBooks(books);
+  saveLocalStorage();
+}
+
+const saveLocalStorage = () => {
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
+const loadLocalStorage = () => {
+  const localBooks = JSON.parse(localStorage.getItem('books'));
+  if (localBooks) {
+    books = localBooks;
+    renderBooks(books);
+  }
 }
 
 const addButton = document.querySelector('#add-button');
-
+const bookTitle = document.querySelector('#book-title');
+const bookAuthor = document.querySelector('#book-author');
 addButton.addEventListener('click', (event) => {
   event.preventDefault();
-  addBook();
+  addBook(bookTitle.value, bookAuthor.value);
 });
 
+window.addEventListener('load', loadLocalStorage);
 
