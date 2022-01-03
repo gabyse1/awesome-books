@@ -1,15 +1,4 @@
-let books = [
-  {
-    id: 1,
-    title: "Book #1",
-    author: "Author #1"
-  },
-  {
-    id: 2,
-    title: "Book #2",
-    author: "Author #2"
-  }
-]
+let books = [];
 
 const renderBook = (book) => {
   const article = document.createElement('article');
@@ -37,4 +26,29 @@ const renderBooks = (books) => {
   });
 }
 
-renderBooks(books);
+
+const bookForm = document.querySelector('#books-form');
+const bookTitle = document.querySelector('#book-title');
+const bookAuthor = document.querySelector('#book-author');
+
+const addBook = () => {
+  let id;
+  if (books.length === 0)
+    id = 1;
+  else
+    id = books[books.length - 1].id + 1;
+
+  books.push({ id: id, title: bookTitle.value, author: bookAuthor.value });
+  renderBooks(books);
+  bookTitle.value = '';
+  bookAuthor.value = '';
+}
+
+const addButton = document.querySelector('#add-button');
+
+addButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  addBook();
+});
+
+
