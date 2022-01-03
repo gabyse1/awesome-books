@@ -3,3 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
+
+.book-article {
+  border-bottom: 1px solid gray;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
