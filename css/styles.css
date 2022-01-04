@@ -3,3 +3,38 @@
 *::after {
   box-sizing: border-box;
 }
+
+body {
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.book-article {
+  border-bottom: 1px solid gray;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.book-article > * {
+  margin: 0.25rem;
+}
+
+#books-form {
+  width: 70%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+#books-form > * {
+  margin-bottom: 1rem;
+}
+
+#books-form button {
+  width: auto;
+  align-self: center;
+  padding: 0.25rem 1rem;
+}
