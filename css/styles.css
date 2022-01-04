@@ -16,6 +16,10 @@ body {
   padding-bottom: 1rem;
 }
 
+.book-article > * {
+  margin: 0.25rem;
+}
+
 #books-form {
   width: 70%;
   max-width: 500px;
