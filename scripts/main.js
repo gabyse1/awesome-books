@@ -15,14 +15,12 @@ class BookList {
   addBook = (bookTitle1, bookAuthor1) => {
     const id = this.books.length === 0 ? 1 : this.books[this.books.length - 1].id + 1;
     this.books.push({ id, title: bookTitle1, author: bookAuthor1 });
-    bookTitle.value = '';
-    bookAuthor.value = '';
-    saveLocalStorage();
+    this.saveLocalStorage();
   };
 
   removeBook = (book) => {
     this.books = this.books.filter((b) => b.id !== book.id);
-    saveLocalStorage();
+    this.saveLocalStorage();
   };
 
   renderBooks = () => {
@@ -41,8 +39,8 @@ class BookList {
       button.classList.add('remove-button');
       button.innerText = 'Remove';
       button.addEventListener('click', () => {
-        removeBook(book);
-        renderBooks();
+        this.removeBook(book);
+        this.renderBooks();
       });
       article.appendChild(h2);
       article.appendChild(h3);
@@ -61,6 +59,8 @@ addButton.addEventListener('click', (event) => {
   event.preventDefault();
   bookList.addBook(bookTitle.value, bookAuthor.value);
   bookList.renderBooks();
+  bookTitle.value = '';
+  bookAuthor.value = '';
 });
 
 window.addEventListener('load', () => {
