@@ -8,16 +8,39 @@ body {
   width: 80%;
   max-width: 600px;
   margin: auto;
+  text-align: center;
+}
+
+.books-list {
+  margin-bottom: 2rem;
+  border: 2px solid gray;
+  position: relative;
+}
+
+.books-list::after {
+  content: '';
+  display: table;
+  width: 100px;
+  height: 2px;
+  background-color: gray;
+  position: absolute;
+  top: calc(100% + 2rem);
+  left: calc(50% - 50px);
 }
 
 .book-article {
-  border-bottom: 1px solid gray;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-article:nth-of-type(odd) {
+  background-color: rgb(218, 216, 216);
 }
 
 .book-article > * {
-  margin: 0.25rem;
+  margin: 0;
 }
 
 #books-form {
@@ -33,8 +56,12 @@ body {
   margin-bottom: 1rem;
 }
 
+button {
+  box-shadow: 4px 4px 2px gray;
+}
+
 #books-form button {
   width: auto;
-  align-self: center;
+  align-self: flex-end;
   padding: 0.25rem 1rem;
 }
