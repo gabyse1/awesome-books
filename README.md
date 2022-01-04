@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[Awesome books](https://gabyse1.github.io/repo-capston-project-01/)
+[Awesome books](https://gabyse1.github.io/repo-awesome-books/)
 
 
 ## Getting Started
