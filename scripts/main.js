@@ -31,10 +31,7 @@ class BookList {
       article.classList.add('book-article');
       const h2 = document.createElement('h2');
       h2.classList.add('b-title');
-      h2.innerText = book.title;
-      const h3 = document.createElement('h3');
-      h3.classList.add('b-author');
-      h3.innerText = book.author;
+      h2.innerText = `"${book.title}" by ${book.author}`;
       const button = document.createElement('button');
       button.classList.add('remove-button');
       button.innerText = 'Remove';
@@ -43,7 +40,6 @@ class BookList {
         this.renderBooks();
       });
       article.appendChild(h2);
-      article.appendChild(h3);
       article.appendChild(button);
       booksList.appendChild(article);
     });
