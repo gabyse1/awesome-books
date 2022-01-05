@@ -24,24 +24,45 @@ class BookList {
   };
 
   renderBooks = () => {
+    /*
+    <div class="col-sm-12 col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">book title</h2>
+          <h3 class="card-subtitle mb-2 text-muted">author</h3>
+          <a href="#" class="btn btn-danger">Remove</a>
+        </div>
+      </div>
+    </div>
+    */
     const booksList = document.querySelector('.books-list');
     booksList.innerText = '';
     this.books.forEach((book) => {
-      const article = document.createElement('article');
-      article.classList.add('book-article');
+      const div = document.createElement('div');
+      div.classList.add('col-sm-12', 'col-md-4', 'mb-4');
+      const divCard = document.createElement('div');
+      divCard.classList.add('card');
+      const divCardBody = document.createElement('div');
+      divCardBody.classList.add('card-body');
       const h2 = document.createElement('h2');
-      h2.classList.add('b-title');
-      h2.innerText = `"${book.title}" by ${book.author}`;
-      const button = document.createElement('button');
-      button.classList.add('remove-button');
-      button.innerText = 'Remove';
-      button.addEventListener('click', () => {
+      h2.classList.add('card-title');
+      h2.innerText = `${book.title}`;
+      const h3 = document.createElement('h3');
+      h3.classList.add('card-subtitle', 'mb-2', 'text-muted');
+      h3.innerText = `${book.author}`;
+      const anchor = document.createElement('a');
+      anchor.classList.add('btn', 'btn-danger');
+      anchor.innerText = 'Remove';
+      anchor.addEventListener('click', () => {
         this.removeBook(book);
         this.renderBooks();
       });
-      article.appendChild(h2);
-      article.appendChild(button);
-      booksList.appendChild(article);
+      divCardBody.appendChild(h2);
+      divCardBody.appendChild(h3);
+      divCardBody.appendChild(anchor);
+      divCard.appendChild(divCardBody);
+      div.appendChild(divCard);
+      booksList.appendChild(div);
     });
   };
 }
