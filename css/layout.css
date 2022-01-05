@@ -3,15 +3,15 @@
 }
 
 .bg-card {
-  background-color: #F8F9FA !important;
+  background-color: #f8f9fa !important;
 }
 
 .bg-navbar {
   background-color: #aadbfd !important;
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .container-sm {
-      max-width: 720px !important;
+    max-width: 720px !important;
   }
 }
