@@ -24,24 +24,13 @@ class BookList {
   };
 
   renderBooks = () => {
-    /*
-    <div class="col-sm-12 col-md-4 mb-4">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">book title</h2>
-          <h3 class="card-subtitle mb-2 text-muted">author</h3>
-          <a href="#" class="btn btn-danger">Remove</a>
-        </div>
-      </div>
-    </div>
-    */
     const booksList = document.querySelector('.books-list');
     booksList.innerText = '';
     this.books.forEach((book) => {
       const div = document.createElement('div');
       div.classList.add('col-sm-12', 'col-md-4', 'mb-4');
       const divCard = document.createElement('div');
-      divCard.classList.add('card');
+      divCard.classList.add('card', 'bg-card');
       const divCardBody = document.createElement('div');
       divCardBody.classList.add('card-body');
       const h2 = document.createElement('h2');
