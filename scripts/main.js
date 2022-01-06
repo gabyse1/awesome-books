@@ -28,17 +28,17 @@ class BookList {
     booksList.innerText = '';
     this.books.forEach((book) => {
       const div = document.createElement('div');
-      div.classList.add('col-sm-12', 'col-md-4', 'mb-4');
+      div.classList.add('card-container');
       const divCard = document.createElement('div');
-      divCard.classList.add('card', 'bg-card');
+      divCard.classList.add('card');
       const divCardBody = document.createElement('div');
       divCardBody.classList.add('card-body');
-      const h2 = document.createElement('h2');
-      h2.classList.add('card-title');
-      h2.innerText = `${book.title}`;
       const h3 = document.createElement('h3');
-      h3.classList.add('card-subtitle', 'mb-2', 'text-muted');
-      h3.innerText = `${book.author}`;
+      h3.classList.add('card-title');
+      h3.innerText = `${book.title}`;
+      const h4 = document.createElement('h4');
+      h4.classList.add('card-subtitle');
+      h4.innerText = `${book.author}`;
       const anchor = document.createElement('a');
       anchor.classList.add('btn', 'btn-danger');
       anchor.innerText = 'Remove';
@@ -46,8 +46,8 @@ class BookList {
         this.removeBook(book);
         this.renderBooks();
       });
-      divCardBody.appendChild(h2);
       divCardBody.appendChild(h3);
+      divCardBody.appendChild(h4);
       divCardBody.appendChild(anchor);
       divCard.appendChild(divCardBody);
       div.appendChild(divCard);
