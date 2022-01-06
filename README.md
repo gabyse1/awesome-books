@@ -2,13 +2,17 @@
 
 "Awesome books" is a simple website that displays a list of books and allows you to add and remove books from that list.
 
-![screenshot](./screenshot.png)
+![screenshot desktop](./screenshot-desktop.png)
+
+![screenshot mobile](./screenshot-mobile.png)
 
 ## Features
 
-- The website has one simple page that display a books list.
-- Books can be added using the form.
-- Books can be removed using the remove button related to each book.
+- The website use the single page application approach. It is able to display three pages dinamically.
+- A books list is displayed on the main page. The "List" option also displays this list.
+- Books can be removed using the remove button related to each book on the books list.
+- Books can be added using a form by clicking the "Add new" option.
+- The "Contact" option display the contact information.
 
 
 ## Built With
