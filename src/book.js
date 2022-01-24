@@ -1,4 +1,4 @@
-class BookList {
+export default class BookList {
   constructor() {
     this.books = [];
   }
@@ -23,6 +23,11 @@ class BookList {
     this.saveLocalStorage();
   };
 
+  hasBook = (bookTitle1) => {
+    if (this.books.find((b) => b.title === bookTitle1)) return true;
+    return false;
+  };
+
   renderBooks = () => {
     const booksList = document.querySelector('.books-list');
     booksList.innerText = '';
@@ -31,8 +36,6 @@ class BookList {
       div.classList.add('card-container');
       const divCard = document.createElement('div');
       divCard.classList.add('card');
-      const divCardBody = document.createElement('div');
-      divCardBody.classList.add('card-body');
       const h3 = document.createElement('h3');
       h3.classList.add('card-title');
       h3.innerText = `${book.title}`;
@@ -46,30 +49,11 @@ class BookList {
         this.removeBook(book);
         this.renderBooks();
       });
-      divCardBody.appendChild(h3);
-      divCardBody.appendChild(h4);
-      divCardBody.appendChild(anchor);
-      divCard.appendChild(divCardBody);
+      divCard.appendChild(h3);
+      divCard.appendChild(h4);
+      divCard.appendChild(anchor);
       div.appendChild(divCard);
       booksList.appendChild(div);
     });
   };
 }
-
-const addButton = document.querySelector('#add-button');
-const bookTitle = document.querySelector('#book-title');
-const bookAuthor = document.querySelector('#book-author');
-const bookList = new BookList();
-
-addButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  bookList.addBook(bookTitle.value, bookAuthor.value);
-  bookList.renderBooks();
-  bookTitle.value = '';
-  bookAuthor.value = '';
-});
-
-window.addEventListener('load', () => {
-  bookList.loadLocalStorage();
-  bookList.renderBooks();
-});
