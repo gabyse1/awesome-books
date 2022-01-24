@@ -2,9 +2,9 @@
 
 "Awesome books" is a simple website that displays a list of books and allows you to add and remove books from that list.
 
-![screenshot desktop](./screenshot-desktop.png)
+![screenshot desktop](./images/screenshot-desktop.png)
 
-![screenshot mobile](./screenshot-mobile.png)
+![screenshot mobile](./images/screenshot-mobile.png)
 
 ## Features
 
@@ -17,11 +17,11 @@
 
 ## Built With
 
-- HTML / CSS / Javascript
+- HTML / CSS / Javascript / Webpack
 
 ## Live Demo
 
-[Awesome books](https://gabyse1.github.io/repo-awesome-books/)
+[Awesome books](https://gabyse1.github.io/awesome-books/dist/)
 
 
 ## Getting Started
@@ -31,16 +31,18 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- Have a computer
+- None
 
 ### Install
 
 - Install git on your local computer.
 - Clone this repository to your local computer. Choose the location you prefer.
+- Run the command *npm install* to install all project's dependencies.
 
 ### Deployment
 
-- Execute the index.html file to display the project.
+- Run the command line *npm run start*.
+- The project will automatically open the *index.html* file in a browser.
 
 
 ## Authors
